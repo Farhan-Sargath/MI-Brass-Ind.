@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e9ecef;
+        }
+        .navbar {
+            padding: 15px 20px; /* Increased padding for a taller navbar */
+        }
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #007bff;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .nav-link {
+            color: #007bff;
+        }
+        .nav-link:hover {
+            color: #0056b3;
+        }
+        img {
+            float: left;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="logomib.jpeg" alt="logo" width="50px" height="50px"> </a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="file:///C:/Users/ASUS/OneDrive/Desktop/WT%20PROJECT%20MIB/finished%20page/homepage.html">Home Page</a></li>
+                    <li class="nav-item"><a class="nav-link" href="file:///C:/Users/ASUS/OneDrive/Desktop/WT%20PROJECT%20MIB/aboutuspage.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="file:///C:/Users/ASUS/OneDrive/Desktop/WT%20PROJECT%20MIB/imggallery.html">Image Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="file:///C:/Users/ASUS/OneDrive/Desktop/WT%20PROJECT%20MIB/contactuspage.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="text-center">Login Form</h2>
+        <form action="process_login.php" method="post" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="companyEmail">Company Email:</label>
+                <input type="email" id="companyEmail" name="companyEmail" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" class="form-control" pattern="[0-9]{10}" required>
+                <small class="form-text text-muted">Format: 1234567890</small>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function validateForm() {
+            const phoneInput = document.getElementById('phone').value;
+            const phonePattern = /^[0-9]{10}$/;
+            if (!phonePattern.test(phoneInput)) {
+                alert("Please enter a valid 10-digit phone number.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
